@@ -1,0 +1,275 @@
+:root{
+    --primario: #9C27B0;
+    --primarioOscuro: #891190;
+    --secundario: #ffce00;
+    --secundariOscuro: rgb(233,287,2);
+    --blanco: #fff;
+    --negro: #000;
+
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+
+/*snipet para elbox model*/
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;/*un rem = 10px*/
+}
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/*GLOBALES*/
+body{
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;/*interlineado a todo el proyecto*/
+}
+
+p{
+    font-size: 1.8rem; 
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+.contenedor{
+    max-width: 140rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+}
+
+h1{
+    font-size: 4rem;/*40px*/
+}
+
+h2{
+    font-size: 3.2rem;/*32px*/
+}
+
+h3{
+    font-size: 2.4rem;/*24px*/
+}
+
+/*HEADER*/
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo{
+    margin: 3rem 0;
+}
+
+/*NAVEGACION(MENU)*/
+.navegacion{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    display: flex; /*centrar horizontalmente*/
+    justify-content: center;
+    gap: 2rem;/*Separar nosotros y tienda*/
+}
+
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+
+.navegacion__enlace--activo,
+.navegacion__enlace:hover{
+    color: var(--secundario);
+}
+
+/*MAIN PRODUCTOS*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /*column y row*/
+}
+
+@media (min-width: 768px) {
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+
+.producto{
+    background-color: var(--primarioOscuro);
+    padding: 1rem;
+}
+
+.producto__imagen{
+    width: 60rem;
+}
+
+.producto__nombre{
+    font-size: 4rem;
+}
+
+.producto__precio{
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;/*cambia el interlineado*/
+}
+
+/*GRAFICOS*/
+.grafico{
+    min-height: 30rem;/*para que la imagen se vea en mobile*/
+    background-repeat: no-repeat; /*la imagen no se repite*/
+    background-size: cover; /*ocupa todo el espacio del bloque*/
+}
+
+/*Se posicionan las imagenes*/
+.grafico--camisas{
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    background-image: url(../FrontEndStore_inicio/img/grafico1.jpg);
+}  
+
+.grafico--node{
+    background-image: url(../FrontEndStore_inicio/img/grafico2.jpg);
+    grid-column: 1 / 3;
+    grid-row: 8 / 9;
+}
+
+@media (min-width: 768px) {
+    .grafico--node{
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+
+
+/*FOOTER*/
+.footer{
+    background-color: var(--primarioOscuro);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.footer__texto{
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+
+/*--- SECCION NOSOTROS ---*/
+.nosotros{
+    display: grid;
+    grid-template-rows: repeat(2, auto);/*RENGLONES*/
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+@media (min-width: 768px) {
+    .nosotros{
+        grid-template-columns: repeat(2, 1fr);/*COLUMNAS*/
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+.nosotros__imagen{
+    grid-row: 1 / 2;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen{
+        grid-column: 2 / 3;
+    }
+}
+
+/*BLOQUES*/
+.bloques{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-right: 6%;
+    margin-left: 6%;   
+    gap: 2rem; 
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .bloques{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+.bloque__titulo{
+    margin: 0%;
+}
+
+
+/*SECCION PRODUCTO*/
+.camisa{
+    font-family: var(--fuentePrincipal);
+    margin-right: 20%;
+    margin-left: 20%;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .camisa{
+        display: grid;      
+        grid-template-columns: repeat(2, 1fr);  
+        column-gap: 2rem;
+        align-items: center;
+    }
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.formulario__campo{
+    /*border-color: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;*/
+    border: 1rem solid var(--primarioOscuro);/*CODIGO PARA SIMPLIFICAR COLOR ANCHOO Y ESTILO*/
+    background-color: transparent;
+    color: var(--blanco);
+    padding: 1rem;
+    appearance: none;/*quitar las felchas de incremento de la derecha*/
+}
+
+.formulario__submit{
+    grid-column: 1 / 3;
+
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    padding: 2rem;
+    transition: background-color .3s ease;/*TRANSICION DE COLORES*/
+}
+
+.formulario__submit:hover{
+    cursor: pointer;
+    background-color: var(--secundariOscuro);
+}
